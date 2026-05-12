@@ -129,7 +129,7 @@ ul{
 <div class="container">
 
 <h1 class="prf">
-User Name: <?php echo htmlspecialchars($_SESSION['first_name'].' '.$_SESSION['last_name']); ?>
+User Name: <?php echo htmlspecialchars($_SESSION['first_name'].' '.$_SESSION['last_name']); ?> (ID: <?php echo $_SESSION['user_id']; ?>)
 </h1>
 
 <div class="header">
@@ -139,7 +139,7 @@ User Name: <?php echo htmlspecialchars($_SESSION['first_name'].' '.$_SESSION['la
 
 <div id="orders"></div>
 
-<a href="/Mobile_User/public/profile.php" class="btn">Back</a>
+<a href="profile.php" class="btn">Back</a>
 <div>
 <div>    
 
@@ -148,7 +148,7 @@ User Name: <?php echo htmlspecialchars($_SESSION['first_name'].' '.$_SESSION['la
 
 <script>
 async function fetchOrders(){
-    const res = await fetch('/Mobile_User/api/orders_api.php');
+    const res = await fetch('../api/orders_api.php');
     const json = await res.json();
     const div = document.getElementById('orders');
     div.innerHTML = '';
@@ -207,7 +207,7 @@ function toggle(id){
 
 async function updateAddress(orderId,addressId){
     if(!addressId) return;
-    await fetch('/Mobile_User/api/orders_api.php',{
+    await fetch('../api/orders_api.php',{
         method:'PATCH',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({
@@ -220,7 +220,7 @@ async function updateAddress(orderId,addressId){
 
 async function cancelOrder(id){
     if(!confirm('Cancel this order?')) return;
-    await fetch('/Mobile_User/api/orders_api.php',{
+    await fetch('../api/orders_api.php',{
         method:'DELETE',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({order_id:id})
@@ -229,10 +229,10 @@ async function cancelOrder(id){
 }
 
 async function logout(){
-    const res = await fetch('/Mobile_User/api/logout_api.php',{method:'POST'});
+    const res = await fetch('../api/logout_api.php',{method:'POST'});
     const data = await res.json();
     if(data.success){
-        window.location.href = '/Mobile_User/public/login.php';
+        window.location.href = 'login.php';
     }
 }
 

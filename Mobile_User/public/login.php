@@ -1,9 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['user_id'])) {
-   // header('Location: profile.php');
-    header("Location: /Mobile_User/public/login.php");
-    
+    header('Location: profile.php');
     exit;
 }
 

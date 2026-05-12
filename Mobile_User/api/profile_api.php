@@ -1,24 +1,5 @@
-
 <?php
-//header('Content-Type: application/json');
-//include '../config/db.php';
-//include '../config/session.php';
-
-//require_login();
-
-//$user_id = $_SESSION['user_id'];
-
-//$stmt = $conn->prepare("SELECT id, first_name, last_name, email, created_at FROM users WHERE id = ?");
-//$stmt->execute([$user_id]);
-//$user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-//echo json_encode(['success' => true, 'data' => $user]);
-//?> 
-
-
-
-
-<?php
+ob_start();
 header('Content-Type: application/json');
 
 include '../config/db.php';
@@ -75,16 +56,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'PATCH') {
     if ($password) {
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $stmt = $conn->prepare("
-            UPDATE users 
+            UPDATE users
             SET first_name=?, last_name=?, email=?, password=?
             WHERE id=?
         ");
         $stmt->execute([$first, $last, $email, $hash, $user_id]);
-    } 
+    }
     // Update without password
     else {
         $stmt = $conn->prepare("
-            UPDATE users 
+            UPDATE users
             SET first_name=?, last_name=?, email=?
             WHERE id=?
         ");

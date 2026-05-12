@@ -532,4 +532,207 @@ Github
     </dependency>
 
 
+++++++++++++++++++++++++++++++++
+
+
+++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+-- Create the database
+CREATE DATABASE Mobile_User_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Use the database
+USE Mobile_User_db;
+
+-- Create users table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create products table
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL
+);
+
+-- Create cart table
+CREATE TABLE cart (
+    user_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    PRIMARY KEY (user_id, product_id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+-- Create addresses table
+CREATE TABLE addresses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    address_line VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    state VARCHAR(255) NOT NULL,
+    zip VARCHAR(20) NOT NULL,
+    country VARCHAR(255) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Create cards table
+CREATE TABLE cards (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    card_number VARCHAR(255) NOT NULL,  -- Note: In production, encrypt sensitive data
+    -- Add other columns as needed, e.g., expiry_date DATE, cvv VARCHAR(4)
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Create orders table
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    address_id INT NOT NULL,
+    total DECIMAL(10, 2) NOT NULL,
+    whitelist_address_id INT NULL,
+    deleted_at TIMESTAMP NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (address_id) REFERENCES addresses(id) ON DELETE CASCADE,
+    FOREIGN KEY (whitelist_address_id) REFERENCES addresses_whitelist(id) ON DELETE SET NULL
+);
+
+-- Create order_items table
+CREATE TABLE order_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    quantity INT NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+-- Create order_tracking table
+CREATE TABLE order_tracking (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    tracking_number VARCHAR(255) NOT NULL,
+    deleted_at TIMESTAMP NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
+);
+
+-- Create addresses_whitelist table
+CREATE TABLE addresses_whitelist (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    address_line VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    state VARCHAR(255) NOT NULL,
+    zip VARCHAR(20) NOT NULL,
+    country VARCHAR(255) NOT NULL,
+    -- Add other columns as needed, similar to addresses table
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+USE Mobile_User_db;
+
+INSERT INTO products (name, price) VALUES
+  ('Wireless Earbuds', 49.99),
+  ('Bluetooth Speaker', 79.99),
+  ('Smart Phone Case', 19.99),
+  ('Charging Cable Set', 12.99),
+  ('Fitness Tracker Band', 89.99);
+
+-- Verify inserted products
+SELECT * FROM products WHERE price <= 100 ORDER BY price;
+
+
+USE Mobile_User_db;
+
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    address_id INT NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+    whitelist_address_id INT DEFAULT NULL,
+    deleted_at TIMESTAMP NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE order_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    quantity INT NOT NULL
+);
+
+CREATE TABLE order_tracking (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    tracking_number VARCHAR(255) NOT NULL,
+    deleted_at TIMESTAMP NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-- Address for checkout
+INSERT INTO addresses (user_id, address_line, city, state, zip, country) 
+VALUES (1, '123 Main St', 'Anytown', 'CA', '12345', 'USA');
+
+-- Whitelist address for order switching
+INSERT INTO addresses_whitelist (user_id, address_line, city, state, zip, country) 
+VALUES (1, '456 Work St', 'Anytown', 'CA', '12345', 'USA');
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+<!--
+docker exec -it mobile_user_db mysql -uappuser -p 
+
+Username: appuser
+Password: appPass123
+http://localhost:8081/public/index.php
+http://localhost:8081/public/login.php
+http://localhost:8081/public/profile.php
+
+
+
+-->
+
+
+# Username: appuser
+# Password: appPass123 
+# http://localhost:8082/index.php?route=/
+# to go to the database in the  terminal, use the following command:
+# docker exec -it mobile_user_db mysql -uappuser -p
+
+
+mailhog
+http://localhost:8025/
+
+
+
+docker compose down                                              
+>> docker compose up -d
+
+
+
+docker login
+mahfuzdocker20
+docker build -t mahfuzdocker20/mobile_user:latest .
+ docker push mahfuzdocker20/mobile_user:latest
+
+ 
+docker pull mahfuzdocker20/mobile_user:latest
 

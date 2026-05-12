@@ -50,7 +50,7 @@ $stmt->execute([$token, $expires, $user['id']]);
 /* =========================
    BUILD RESET LINK
 ========================= */
-$reset_link = "http://localhost/Mobile_User/public/reset_password.php?token=" . urlencode($token);
+$reset_link = "http://localhost:8081/public/reset_password.php?token=" . urlencode($token);
 
 /* =========================
    EMAIL CONTENT

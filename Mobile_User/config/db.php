@@ -1,8 +1,13 @@
 <?php
-$host = 'localhost';
+// $host = 'localhost';
+// $dbname = 'Mobile_User_db';
+// $user = 'root';
+// $pass = '';
+
+$host = 'db';
 $dbname = 'Mobile_User_db';
-$user = 'root';
-$pass = '';
+$user = 'appuser';
+$pass = 'appPass123';
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
@@ -10,4 +15,6 @@ try {
 } catch(PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
 }
-?>
+
+
+
