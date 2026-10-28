@@ -1,7 +1,17 @@
 <?php
-session_start();
+require_once __DIR__ . '/../config/session.php';
+$redirect = 'profile.php';
+$candidate = $_GET['redirect'] ?? '';
+$basePath = dirname($_SERVER['SCRIPT_NAME']);
+if (is_string($candidate) && !preg_match('/[\r\n]/', $candidate)
+    && !parse_url($candidate, PHP_URL_HOST) && !parse_url($candidate, PHP_URL_SCHEME)
+    && in_array(parse_url($candidate, PHP_URL_PATH), [
+        "$basePath/product.php", "$basePath/checkout.php", "$basePath/profile.php", "$basePath/orders.php", "$basePath/cart.php", "$basePath/update_profile.php",
+    ], true)) {
+    $redirect = $candidate;
+}
 if (isset($_SESSION['user_id'])) {
-    header('Location: profile.php');
+    header('Location: ' . $redirect);
     exit;
 }
 
@@ -17,10 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($password, $user['password'])) {
+        session_regenerate_id(true);
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['first_name'] = $user['first_name'];
         $_SESSION['last_name'] = $user['last_name'];
-        header('Location: profile.php');
+        header('Location: ' . $redirect);
         exit;
     } else {
         $message = 'Invalid email or password';

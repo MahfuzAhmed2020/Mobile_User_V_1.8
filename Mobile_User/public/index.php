@@ -1,23 +1,25 @@
 <?php
-session_start();
+require_once __DIR__ . '/../config/session.php';
 include '../config/db.php';
 
 $errors = [];
 $success = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $first_name = trim($_POST['first_name']);
-    $last_name  = trim($_POST['last_name']);
-    $email      = trim($_POST['email']);
-    $password   = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
+    $first_name = trim($_POST['first_name'] ?? '');
+    $last_name  = trim($_POST['last_name'] ?? '');
+    $email      = trim($_POST['email'] ?? '');
+    $password   = $_POST['password'] ?? '';
+    $confirm_password = $_POST['confirm_password'] ?? '';
     $agree_terms = isset($_POST['agree_terms']) ? true : false;
 
     // Validation
     if (!$agree_terms) {
         $errors[] = "You must agree to the terms and privacy policy.";
     }
-    if (strlen($password) < 6) $errors[] = "Password must be at least 6 characters.";
+    if ($first_name === '' || $last_name === '') $errors[] = 'First and last name are required.';
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Enter a valid email address.';
+    if (strlen($password) < 8) $errors[] = "Password must be at least 8 characters.";
     if (!preg_match('/[A-Z]/', $password)) $errors[] = "Password must contain at least one capital letter.";
     if (!preg_match('/[0-9]/', $password)) $errors[] = "Password must contain at least one number.";
     if (!preg_match('/[!$%?*@#]/', $password)) $errors[] = "Password must contain at least one special character (!, $, %, ?, *, @, #).";
@@ -35,6 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $hashed = password_hash($password, PASSWORD_DEFAULT);
         $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)");
         $stmt->execute([$first_name, $last_name, $email, $hashed]);
+        $newUserId = (int) $conn->lastInsertId();
+        require_once __DIR__ . '/../config/demo_cards.php';
+        add_demo_cards($conn, $newUserId);
+        require_once __DIR__ . '/../config/demo_addresses.php';
+        add_demo_addresses($conn, $newUserId);
+        require_once __DIR__ . '/../config/mailer.php';
+        $welcomeSent = send_welcome_email($email, $first_name);
         $success = "Registration successful! You can now <a href='login.php'>login</a>.";
     }
 }
@@ -97,16 +106,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="form-row">
                 <div class="form-group">
                     <label for="first_name">First Name</label>
-                    <input type="text" id="first_name" name="first_name" required value="<?php echo $_POST['first_name'] ?? ''; ?>">
+                    <input type="text" id="first_name" name="first_name" required value="<?php echo htmlspecialchars($_POST['first_name'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
                 <div class="form-group">
                     <label for="last_name">Last Name</label>
-                    <input type="text" id="last_name" name="last_name" required value="<?php echo $_POST['last_name'] ?? ''; ?>">
+                    <input type="text" id="last_name" name="last_name" required value="<?php echo htmlspecialchars($_POST['last_name'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
                 </div>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required value="<?php echo $_POST['email'] ?? ''; ?>">
+                <input type="email" id="email" name="email" required value="<?php echo htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>

@@ -5,7 +5,7 @@ include '../config/session.php';
 
 require_login();
 
-$stmt = $conn->prepare("SELECT * FROM products WHERE price <= 100 LIMIT 5");
+$stmt = $conn->prepare("SELECT id, name, description, price FROM products ORDER BY id");
 $stmt->execute();
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

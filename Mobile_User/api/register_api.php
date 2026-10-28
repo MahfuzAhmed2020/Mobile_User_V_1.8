@@ -11,6 +11,8 @@ $password   = $data['password'] ?? '';
 $confirm_password = $data['confirm_password'] ?? '';
 
 $errors = [];
+if ($first_name === '' || $last_name === '') $errors[] = 'First and last name are required';
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Enter a valid email address';
 
 /* ---------------- PASSWORD VALIDATION ---------------- */
 if (strlen($password) < 8) $errors[] = "Password must be at least 8 characters";
@@ -40,38 +42,18 @@ $stmt = $conn->prepare(
 $stmt->execute([$first_name,$last_name,$email,$hashed]);
 
 $user_id = $conn->lastInsertId();
+require_once __DIR__ . '/../config/demo_cards.php';
+add_demo_cards($conn, (int) $user_id);
+require_once __DIR__ . '/../config/demo_addresses.php';
+add_demo_addresses($conn, (int) $user_id);
 
-/* ---------------- SEND REGISTRATION EMAIL (MAILHOG) ---------------- */
-$subject = "Welcome to Mobile User";
-$message = "Hi $first_name,
-
-Your account has been created successfully.
-
-You can now log in and place orders.
-
-Thanks,
-Mobile User Team";
-
-// ✅ MailHog configuration
-ini_set('SMTP', 'localhost');
-ini_set('smtp_port', 1025);
-ini_set('sendmail_from', 'no-reply@mobileuser.test');
-
-$headers = "From: Mobile User <no-reply@mobileuser.test>";
-
-// ✅ Only send email if $email is valid
-if (!empty($email)) {
-    $mail_sent = mail($email, $subject, $message, $headers);
-    if (!$mail_sent) {
-        error_log("Registration email FAILED for user ID: $user_id");
-    } else {
-        error_log("Registration email sent to $email");
-    }
-}
+require_once __DIR__ . '/../config/mailer.php';
+$mail_sent = send_welcome_email($email, $first_name);
 
 /* ---------------- RESPONSE ---------------- */
 echo json_encode([
     'success'=>true,
     'message'=>'Registration successful',
-    'user_id'=>$user_id
+    'user_id'=>$user_id,
+    'email_sent'=>$mail_sent
 ]);

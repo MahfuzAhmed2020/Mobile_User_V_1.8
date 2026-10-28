@@ -1,6 +1,8 @@
 <?php
 header('Content-Type: application/json');
 include '../config/db.php';
+require_once __DIR__ . '/../config/session.php';
+require_login();
 
 $data = json_decode(file_get_contents("php://input"), true);
 $tracking_number = trim($data['tracking_number'] ?? '');
@@ -30,9 +32,10 @@ $stmt = $conn->prepare("
     JOIN orders o ON o.id = t.order_id
     JOIN users u ON u.id = o.user_id
     WHERE t.tracking_number = ?
+      AND o.user_id = ?
       AND o.deleted_at IS NULL
 ");
-$stmt->execute([$tracking_number]);
+$stmt->execute([$tracking_number, $_SESSION['user_id']]);
 $order = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$order) {
@@ -47,7 +50,7 @@ if (!$order) {
    FETCH ORDER ITEMS
 ====================== */
 $stmt = $conn->prepare("
-    SELECT p.name, p.price, oi.quantity
+    SELECT oi.product_name AS name, oi.price, oi.quantity
     FROM order_items oi
     JOIN products p ON p.id = oi.product_id
     WHERE oi.order_id = ?

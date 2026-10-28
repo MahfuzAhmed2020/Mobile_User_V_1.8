@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 include '../config/db.php';
 include '../config/session.php';
 
@@ -24,6 +25,7 @@ $stmt->execute([$email]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($user && password_verify($password, $user['password'])) {
+    session_regenerate_id(true);
     // Store session
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['first_name'] = $user['first_name'];

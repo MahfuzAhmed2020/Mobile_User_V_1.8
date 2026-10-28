@@ -1,42 +1,18 @@
 <?php
-// api/logout_api.php
-
-session_start();
-
-// Store user ID before destroying session
-$loggedOutUser = $_SESSION['user_id'] ?? null;
-
-// If no user is logged in
-if (!$loggedOutUser) {
-    echo json_encode([
-        "success" => false,
-        "message" => "No active session"
-    ]);
+header('Content-Type: application/json');
+require_once __DIR__ . '/../config/session.php';
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['success'=>false,'message'=>'Use POST to sign out.']);
     exit;
 }
-
-// Unset all session variables
 $_SESSION = [];
-
-// Destroy session
-session_destroy();
-
-// Delete session cookie
-if (ini_get("session.use_cookies")) {
+if (ini_get('session.use_cookies')) {
     $params = session_get_cookie_params();
-    setcookie(
-        session_name(),
-        '',
-        time() - 42000,
-        $params["path"],
-        $params["domain"],
-        $params["secure"],
-        $params["httponly"]
-    );
+    setcookie(session_name(), '', [
+        'expires'=>time()-42000, 'path'=>$params['path'], 'domain'=>$params['domain'],
+        'secure'=>$params['secure'], 'httponly'=>$params['httponly'], 'samesite'=>$params['samesite'] ?: 'Lax',
+    ]);
 }
-
-echo json_encode([
-    "success" => true,
-    "message" => "Logged out successfully",
-    "user_id" => $loggedOutUser
-]);
+session_destroy();
+echo json_encode(['success'=>true,'message'=>'You have been signed out.']);

@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json');
 include '../config/db.php';
+require_once __DIR__ . '/../config/mailer.php';
 
 /* =========================
    READ INPUT
@@ -50,7 +51,7 @@ $stmt->execute([$token, $expires, $user['id']]);
 /* =========================
    BUILD RESET LINK
 ========================= */
-$reset_link = "http://localhost:8081/public/reset_password.php?token=" . urlencode($token);
+$reset_link = app_url('public/reset_password.php') . '?token=' . urlencode($token);
 
 /* =========================
    EMAIL CONTENT
@@ -79,7 +80,7 @@ $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 /* =========================
    SEND EMAIL
 ========================= */
-$sent = mail($email, $subject, $message, $headers);
+$sent = send_app_mail($email, $subject, $message);
 
 if (!$sent) {
     echo json_encode([

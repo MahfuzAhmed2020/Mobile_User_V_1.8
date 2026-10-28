@@ -1,15 +1,8 @@
 <?php
-include '../config/session.php';
-include '../config/db.php';
-
+header('Content-Type: application/json');
+require_once __DIR__ . '/../config/session.php';
 require_login();
-
-// REMOVE user filter
-$stmt = $conn->prepare("SELECT card_number, user_id FROM cards");
-$stmt->execute();
-$cards = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-echo json_encode([
-    "success" => true,
-    "data" => $cards
-]);
+require __DIR__ . '/../config/db.php';
+$stmt = $conn->prepare('SELECT card_number FROM cards WHERE user_id = ?');
+$stmt->execute([$_SESSION['user_id']]);
+echo json_encode(['success' => true, 'data' => $stmt->fetchAll(PDO::FETCH_ASSOC)]);
