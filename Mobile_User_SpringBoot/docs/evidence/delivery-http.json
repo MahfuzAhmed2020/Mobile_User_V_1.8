@@ -1,0 +1,12 @@
+{
+  "base": "http://127.0.0.1:8087",
+  "statuses": {
+    "/shop": 200,
+    "/products/1": 200,
+    "/docs": 200,
+    "/swagger-ui/index.html": 200,
+    "/openapi.json": 200,
+    "/api/cart": 401
+  },
+  "operations": 23
+}

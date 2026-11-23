@@ -1,0 +1,51 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:1-473
+INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:1-473
+INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:1-473
+INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:1-473
+	package
+		INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:11-69
+application
+ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:70-462
+INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:70-462
+	android:extractNativeLibs
+		INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml
+	android:supportsRtl
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:206-232
+	android:label
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:111-141
+	android:allowBackup
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:83-110
+	android:theme
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:142-205
+activity#com.practice.todo.MainActivity
+ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:233-448
+	android:exported
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:272-295
+	android:name
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:243-271
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:296-437
+action#android.intent.action.MAIN
+ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:311-362
+	android:name
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:319-360
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:362-421
+	android:name
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml:1:372-419
+uses-sdk
+INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml
+INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\todo\src\main\AndroidManifest.xml

@@ -1,0 +1,5 @@
+counter: PASS (installed, launched, interaction verified)
+calculator: PASS (installed, launched, interaction verified)
+todo: PASS (installed, launched, interaction verified)
+quiz: PASS (installed, launched, interaction verified)
+shop: PASS (installed, launched, interaction verified)

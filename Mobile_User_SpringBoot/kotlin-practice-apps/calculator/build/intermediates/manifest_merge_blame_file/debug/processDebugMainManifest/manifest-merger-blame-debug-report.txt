@@ -1,0 +1,42 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.practice.calculator"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="35" />
+10
+11    <application
+11-->C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\calculator\src\main\AndroidManifest.xml:1:70-467
+12        android:allowBackup="false"
+12-->C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\calculator\src\main\AndroidManifest.xml:1:83-110
+13        android:debuggable="true"
+14        android:extractNativeLibs="false"
+15        android:label="Practice Calculator"
+15-->C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\calculator\src\main\AndroidManifest.xml:1:111-146
+16        android:supportsRtl="true"
+16-->C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\calculator\src\main\AndroidManifest.xml:1:211-237
+17        android:theme="@android:style/Theme.Material.Light.NoActionBar" >
+17-->C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\calculator\src\main\AndroidManifest.xml:1:147-210
+18        <activity
+18-->C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\calculator\src\main\AndroidManifest.xml:1:238-453
+19            android:name="com.practice.calculator.MainActivity"
+19-->C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\calculator\src\main\AndroidManifest.xml:1:248-276
+20            android:exported="true" >
+20-->C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\calculator\src\main\AndroidManifest.xml:1:277-300
+21            <intent-filter>
+21-->C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\calculator\src\main\AndroidManifest.xml:1:301-442
+22                <action android:name="android.intent.action.MAIN" />
+22-->C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\calculator\src\main\AndroidManifest.xml:1:316-367
+22-->C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\calculator\src\main\AndroidManifest.xml:1:324-365
+23
+24                <category android:name="android.intent.category.LAUNCHER" />
+24-->C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\calculator\src\main\AndroidManifest.xml:1:367-426
+24-->C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\calculator\src\main\AndroidManifest.xml:1:377-424
+25            </intent-filter>
+26        </activity>
+27    </application>
+28
+29</manifest>

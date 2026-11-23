@@ -1,0 +1,51 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:1-475
+INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:1-475
+INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:1-475
+INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:1-475
+	package
+		INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:11-69
+application
+ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:70-464
+INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:70-464
+	android:extractNativeLibs
+		INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml
+	android:supportsRtl
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:208-234
+	android:label
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:111-143
+	android:allowBackup
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:83-110
+	android:theme
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:144-207
+activity#com.practice.counter.MainActivity
+ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:235-450
+	android:exported
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:274-297
+	android:name
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:245-273
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:298-439
+action#android.intent.action.MAIN
+ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:313-364
+	android:name
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:321-362
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:364-423
+	android:name
+		ADDED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml:1:374-421
+uses-sdk
+INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml
+INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\mahfu\Desktop\back_UP_xampp_files\Mobile_User_V_1.8\Mobile_User_SpringBoot\kotlin-practice-apps\counter\src\main\AndroidManifest.xml

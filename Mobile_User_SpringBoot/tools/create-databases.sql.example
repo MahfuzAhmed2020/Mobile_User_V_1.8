@@ -1,0 +1,7 @@
+-- Review and execute manually as a local MySQL administrator.
+-- CREATE fails if a database/account already exists; it never overwrites one.
+CREATE DATABASE mobile_user_springboot_dev CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE mobile_user_springboot_test_local CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'mobile_user_springboot'@'localhost' IDENTIFIED BY 'REPLACE_WITH_A_NEW_LOCAL_PASSWORD';
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,ALTER,INDEX,REFERENCES ON mobile_user_springboot_dev.* TO 'mobile_user_springboot'@'localhost';
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,ALTER,INDEX,REFERENCES ON mobile_user_springboot_test_local.* TO 'mobile_user_springboot'@'localhost';

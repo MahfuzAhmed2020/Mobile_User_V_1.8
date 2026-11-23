@@ -1,0 +1,45 @@
+{
+  "unchanged_since_read_only_audit": true,
+  "tables": {
+    "addresses": {
+      "rows": 25,
+      "checksum": 1579534497
+    },
+    "addresses_whitelist": {
+      "rows": 25,
+      "checksum": 1498564128
+    },
+    "cards": {
+      "rows": 25,
+      "checksum": 3196968178
+    },
+    "cart": {
+      "rows": 1,
+      "checksum": 3189878562
+    },
+    "email_whitelist": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "order_items": {
+      "rows": 27,
+      "checksum": 1433015924
+    },
+    "order_tracking": {
+      "rows": 10,
+      "checksum": 83084562
+    },
+    "orders": {
+      "rows": 10,
+      "checksum": 252471401
+    },
+    "products": {
+      "rows": 15,
+      "checksum": 388523898
+    },
+    "users": {
+      "rows": 5,
+      "checksum": 3530926784
+    }
+  }
+}

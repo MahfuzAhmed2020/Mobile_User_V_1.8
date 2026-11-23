@@ -1,0 +1,16 @@
+INSERT INTO products (id,name,description,price) VALUES
+(1,'Wireless Earbuds','Wireless earbuds for everyday listening.','49.99'),
+(2,'Bluetooth Speaker','Portable wireless speaker.','79.99'),
+(3,'Smart Phone Case','Protective case for your phone.','19.99'),
+(4,'Charging Cable Set','Charging cables for everyday use.','12.99'),
+(5,'Fitness Tracker Band','Fitness tracker for daily activity.','89.99'),
+(6,'Portable Power Bank','Compact backup power for your everyday devices.','34.99'),
+(7,'Wireless Charging Pad','A tidy charging spot for compatible wireless-charging devices.','24.99'),
+(8,'USB-C Wall Charger','A compact charging adapter for your USB-C accessories.','22.99'),
+(9,'Adjustable Phone Stand','Keep your phone comfortably in view on your desk.','16.99'),
+(10,'Tempered Glass Screen Protector','An extra layer of everyday screen protection.','9.99'),
+(11,'Wireless Mouse','Comfortable wireless control for your daily workspace.','27.99'),
+(12,'Compact Bluetooth Keyboard','A space-saving keyboard for work and everyday typing.','59.99'),
+(13,'USB-C Multiport Hub','Bring your everyday desk connections together.','39.99'),
+(14,'Adjustable Laptop Stand','Raise your laptop for a more comfortable workspace.','44.99'),
+(15,'Protective Laptop Sleeve','A padded sleeve to keep your laptop covered on the go.','29.99');

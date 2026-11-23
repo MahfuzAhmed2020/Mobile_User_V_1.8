@@ -1,0 +1,10 @@
+[
+    {
+        "password": "Synthetic1!",
+        "hash": "$2y$12$pqpvrHP1uzRplLT1rm8sfe14ZlTtN0LIjOZFC3Ldiix6pnC.MgUWO"
+    },
+    {
+        "password": "UTF8-\u00e91!Pass",
+        "hash": "$2y$12$1IYXrrHWKFwMFiI32wKClOgvV6wlLnLYBi8mTTUG9wOyoDJbrnGsa"
+    }
+]
